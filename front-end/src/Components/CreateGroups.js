@@ -14,6 +14,9 @@ import { create } from "@mui/material/styles/createTransitions";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
+const ENDPOINT = "https://chatapp-backend-ri1x.onrender.com";
+
+
 function CreateGroups() {
   const lightTheme = useSelector((state) => state.themeKey);
   const userData = JSON.parse(localStorage.getItem("userData"));
@@ -45,7 +48,7 @@ function CreateGroups() {
     };
 
     axios.post(
-      "http://localhost:8080/chat/createGroup",
+      ENDPOINT+"/chat/createGroup",
       {
         name: groupName,
         users: '[]',
