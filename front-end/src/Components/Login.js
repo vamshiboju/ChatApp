@@ -6,6 +6,9 @@ import { Link, useNavigate } from "react-router-dom";
 import Toaster from "./Toaster";
 import NavBar from "./NavBar";
 
+const ENDPOINT = "https://chatapp-backend-ri1x.onrender.com";
+
+
 function Login() {
   //const [login, setlogin] = useState(false);
   // const [signup, setsignup] = useState(second)
@@ -33,7 +36,7 @@ function Login() {
       };
 
       const response = await axios.post(
-        "http://localhost:8080/user/login/",
+        ENDPOINT+"/user/login/",
         data,
         config
       );
@@ -61,7 +64,7 @@ function Login() {
       };
 
       const response = await axios.post(
-        "http://localhost:8080/user/register/",
+        ENDPOINT+"/user/register/",
         data,
         config
       );
