@@ -11,6 +11,9 @@ import { useNavigate } from "react-router-dom";
 import { refreshSidebarFun } from "../Features/refreshSidebar";
 import { myContext } from "./MainContainer";
 
+const ENDPOINT = "https://chatapp-backend-ri1x.onrender.com";
+
+
 function Users() {
   // const [refresh, setRefresh] = useState(true);
   const { refresh, setRefresh } = useContext(myContext);
@@ -34,7 +37,7 @@ function Users() {
         Authorization: `Bearer ${userData.data.token}`,
       },
     };
-    axios.get("http://localhost:8080/user/fetchUsers", config).then((data) => {
+    axios.get(ENDPOINT+"/user/fetchUsers", config).then((data) => {
       console.log("UData refreshed in Users panel ");
       setUsers(data.data);
       // setRefresh(!refresh);
@@ -95,7 +98,7 @@ function Users() {
                     },
                   };
                   axios.post(
-                    "http://localhost:8080/chat/",
+                    ENDPOINT+"/chat/",
                     {
                       userId: user._id,
                     },
