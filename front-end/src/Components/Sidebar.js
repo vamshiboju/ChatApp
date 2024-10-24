@@ -15,6 +15,8 @@ import axios from "axios";
 import { refreshSidebarFun } from "../Features/refreshSidebar";
 import { myContext } from "./MainContainer";
 
+const ENDPOINT = "https://chatapp-backend-ri1x.onrender.com";
+
 function Sidebar() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -41,7 +43,7 @@ function Sidebar() {
       },
     };
 
-    axios.get("http://localhost:8080/chat/", config).then((response) => {
+    axios.get(ENDPOINT+"/chat/", config).then((response) => {
       console.log("Data refresh in sidebar ", response.data);
       setConversations(response.data);
       setRefresh(!refresh);
