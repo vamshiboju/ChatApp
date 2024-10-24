@@ -7,6 +7,8 @@ import Toaster from "./Toaster";
 import NavBar from "./NavBar";
 import { MenuItem } from '@mui/material';
 
+const ENDPOINT = "https://chatapp-backend-ri1x.onrender.com";
+
 function Login() {
     const [data, setData] = useState({ name: "", email: "", password: "", gender: "" });
     const [loading, setLoading] = useState(false);
@@ -31,7 +33,7 @@ function Login() {
             };
 
             const response = await axios.post(
-                "http://localhost:8080/user/login/",
+                ENDPOINT+"/user/login/",
                 data,
                 config
             );
@@ -59,7 +61,7 @@ function Login() {
             };
 
             const response = await axios.post(
-                "http://localhost:8080/user/register/",
+                ENDPOINT+"/user/register/",
                 data,
                 config
             );
