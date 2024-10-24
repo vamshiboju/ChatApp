@@ -12,7 +12,7 @@ import { useNavigate } from "react-router-dom";
 import { myContext } from "./MainContainer";
 import io, { Socket } from "socket.io-client";
 
-const ENDPOINT = "http://localhost:8080";
+const ENDPOINT = "https://chatapp-backend-ri1x.onrender.com";
 
 var socket, chat;
 
@@ -44,7 +44,7 @@ function ChatArea() {
     };
     axios
       .post(
-        "http://localhost:8080/message/",
+        "https://chatapp-backend-ri1x.onrender.com/message/",
         {
           content: messageContent,
           chatId: chat_id,
@@ -87,7 +87,7 @@ function ChatArea() {
       },
     };
     axios
-      .get("http://localhost:8080/message/" + chat_id, config)
+      .get("https://chatapp-backend-ri1x.onrender.com/message/" + chat_id, config)
       .then(({ data }) => {
         setAllMessages(data);
         setloaded(true);
@@ -156,7 +156,7 @@ function ChatArea() {
                 },
               };
               axios.put(
-                "http://localhost:8080/chat/groupExit",
+                "https://chatapp-backend-ri1x.onrender.com/chat/groupExit",
                 {
                   chatId: chat_id,
                   userId: userData.data._id,
