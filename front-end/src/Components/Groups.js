@@ -11,6 +11,9 @@ import { useNavigate } from "react-router-dom";
 import { refreshSidebarFun } from "../Features/refreshSidebar";
 import { myContext } from "./MainContainer";
 
+const ENDPOINT = "https://chatapp-backend-ri1x.onrender.com";
+
+
 function Groups() {
   // const [refresh, setRefresh] = useState(true);
   const { refresh, setRefresh } = useContext(myContext);
@@ -36,7 +39,7 @@ function Groups() {
     };
 
     axios
-      .get("http://localhost:8080/chat/fetchGroups", config)
+      .get(ENDPOINT+"/chat/fetchGroups", config)
       .then((response) => {
         console.log("Group Data from API ", response.data);
         SetGroups(response.data);
@@ -97,7 +100,7 @@ function Groups() {
                     },
                   };
                   axios.put(
-                    "http://localhost:8080/chat/addSelfToGroup",
+                    ENDPOINT+"/chat/addSelfToGroup",
                     {
                       chatId: group._id,
                       userId: userData.data._id,
